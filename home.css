@@ -303,3 +303,26 @@ body {
     color: var(--card-color);
     font-weight: bold;
 }
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .home-card {
+        padding: 40px 20px 30px;
+        height: 90vh;
+    }
+    
+    .image-wrapper {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .text-section {
+        font-size: 1.4rem;
+        padding-right: 0;
+    }
+    
+    .gallery-btn {
+        font-size: 1rem;
+        padding: 8px 20px;
+    }
+}
