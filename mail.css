@@ -1,0 +1,326 @@
+@font-face {
+    font-family: 'ReenieBeanie';
+    src: url('assets/ReenieBeanie.ttf') format('truetype');
+}
+
+:root {
+    --bg-color: #FFF7E1;
+    --card-color: #790C12;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--bg-color); /* The text inside the red card should be cream */
+    font-family: 'ReenieBeanie', cursive;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+}
+
+.mail-container {
+    perspective: 1000px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mail-card {
+    background-color: var(--card-color);
+    width: 100%;
+    max-width: 600px;
+    height: 85vh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(121, 12, 18, 0.4);
+    
+    /* The Pop-up Animation */
+    opacity: 0;
+    transform: scale(0.7) translateY(80px);
+    animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.mail-header {
+    flex-shrink: 0;
+    margin-bottom: 25px;
+}
+
+.mail-header p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.3s forwards;
+}
+
+.highlight {
+    font-family: 'ReenieBeanie', cursive;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #FFD6D6; /* A slightly lighter pinkish cream to stand out on red */
+    margin-left: 10px;
+}
+
+.mail-divider {
+    height: 1px;
+    background-color: rgba(255, 247, 225, 0.2);
+    margin: 25px 0;
+    width: 0;
+    flex-shrink: 0;
+    animation: expandWidth 0.5s ease-out 0.5s forwards;
+}
+
+.mail-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.message-label {
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.7s forwards;
+}
+
+.message-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 5px 10px 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    /* Membuat efek gradasi halus (fade-out) di bagian atas dan bawah */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.9s forwards;
+}
+
+/* Sembunyikan scrollbar untuk Chrome, Safari dan Opera */
+.message-content::-webkit-scrollbar {
+    display: none;
+}
+
+.cursor {
+    font-weight: 400;
+    color: var(--bg-color);
+    animation: none; /* starts solid, blinks after typing finishes */
+}
+
+.mail-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 1.1s forwards;
+}
+
+
+.attachment-btn {
+    background: var(--bg-color);
+    color: var(--card-color);
+    border: 1px solid var(--bg-color);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: 'ReenieBeanie', cursive;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(255, 247, 225, 0.2);
+}
+
+.attachment-btn:hover {
+    background-color: transparent;
+    color: var(--bg-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 247, 225, 0.3);
+}
+
+/* Keyframes for the Pop-up and sequences */
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes expandWidth {
+    to { width: 100%; }
+}
+
+/* Page exit transition */
+.fade-out {
+    animation: pageOut 0.4s ease-in-out forwards;
+}
+
+@keyframes pageOut {
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: blur(5px);
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- MUSIC PLAYER --- */
+.music-player {
+    position: absolute; /* absolute agar menempel di dalam viewport */
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    font-family: sans-serif;
+}
+
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--card-color);
+    color: var(--bg-color);
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Bayangan kuat tanpa garis tepi */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+@media (hover: hover) {
+    .music-toggle:hover {
+        transform: scale(1.1) rotate(10deg);
+    }
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-panel {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 250px;
+    background-color: var(--card-color);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Bayangan hitam tebal agar menonjol dari latar merah */
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: bottom right;
+    z-index: 1;
+}
+
+.music-panel.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.music-controls button {
+    background: transparent;
+    border: none;
+    color: var(--bg-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-controls button:hover {
+    background-color: rgba(255, 247, 225, 0.15);
+    transform: scale(1.15);
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.music-list::-webkit-scrollbar {
+    width: 4px;
+}
+.music-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 247, 225, 0.4);
+    border-radius: 10px;
+}
+
+.song-item {
+    padding: 10px;
+    background-color: rgba(255, 247, 225, 0.05);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 247, 225, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-item:hover {
+    background-color: rgba(255, 247, 225, 0.15);
+    color: var(--bg-color);
+}
+
+.song-item.active {
+    background-color: var(--bg-color);
+    color: var(--card-color);
+    font-weight: bold;
+}

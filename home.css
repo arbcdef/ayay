@@ -1,0 +1,305 @@
+@font-face {
+    font-family: 'ReenieBeanie';
+    src: url('assets/ReenieBeanie.ttf') format('truetype');
+}
+
+:root {
+    --bg-color: #FFF7E1;
+    --card-color: #790C12;
+    --garland-green: #37C2A9; /* Warna hijau tosca untuk bendera */
+    --garland-red: #FFB6C1; /* Warna pink/merah muda untuk bendera muda */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--bg-color); /* Teks cream di atas kotak merah */
+    font-family: 'ReenieBeanie', cursive; /* Menggunakan font Reenie Beanie */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.home-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-card {
+    background-color: var(--card-color);
+    width: 100%;
+    max-width: 800px;
+    height: 85vh;
+    max-height: 800px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(121, 12, 18, 0.4);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 70px 50px 50px;
+    
+    /* Animasi Pop-up seperti mail */
+    opacity: 0;
+    transform: scale(0.7) translateY(80px);
+    animation: popUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+
+/* Bagian Gambar */
+.image-section {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.5s forwards;
+}
+
+.image-wrapper {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+}
+
+.image-wrapper:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambarnya (bahkan stiker) muat di dalam */
+    display: block;
+}
+
+/* Placeholder kalau belum ada gambar */
+.image-wrapper.placeholder {
+    background-color: rgba(255, 247, 225, 0.1);
+    border: 3px dashed rgba(255, 247, 225, 0.4);
+    color: rgba(255, 247, 225, 0.6);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.image-wrapper.placeholder::after {
+    content: 'Taruh fotomu di sini 📸\000A(Ganti di HTML)';
+    white-space: pre;
+    position: absolute;
+    width: 80%;
+}
+
+.image-wrapper.placeholder img {
+    display: none;
+}
+
+/* Bagian Teks */
+.text-section {
+    width: 100%;
+    text-align: left;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 5px 10px 0; /* Menambah jarak atas bawah agar teks tidak terlalu mepet */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+    /* Membuat efek gradasi halus (fade-out) di bagian atas dan bawah agar potongan teks tidak kasar */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+}
+
+/* Sembunyikan scrollbar untuk Chrome, Safari dan Opera */
+.text-section::-webkit-scrollbar {
+    display: none;
+}
+
+.greeting {
+    font-weight: 700;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.8s forwards;
+}
+
+.message {
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 1.1s forwards;
+}
+
+/* Keyframes Animasi */
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+/* Transisi keluar */
+.fade-out {
+    animation: pageOut 0.4s ease-in-out forwards;
+}
+
+@keyframes pageOut {
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: blur(5px);
+    }
+}
+
+/* --- MUSIC PLAYER --- */
+.music-player {
+    position: absolute; /* Mengubah dari fixed ke absolute agar menempel di dalam kartu merah */
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    font-family: sans-serif;
+}
+
+.music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--card-color);
+    color: var(--bg-color);
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Bayangan kuat tanpa garis tepi */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+@media (hover: hover) {
+    .music-toggle:hover {
+        transform: scale(1.1) rotate(10deg);
+    }
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+.music-panel {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 250px;
+    background-color: var(--card-color);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Bayangan hitam tebal agar menonjol dari latar merah */
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: bottom right;
+    z-index: 1;
+}
+
+.music-panel.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.music-controls button {
+    background: transparent;
+    border: none;
+    color: var(--bg-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-controls button:hover {
+    background-color: rgba(255, 247, 225, 0.15);
+    transform: scale(1.15);
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.music-list::-webkit-scrollbar {
+    width: 4px;
+}
+.music-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 247, 225, 0.4);
+    border-radius: 10px;
+}
+
+.song-item {
+    padding: 10px;
+    background-color: rgba(255, 247, 225, 0.05);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 247, 225, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-item:hover {
+    background-color: rgba(255, 247, 225, 0.15);
+    color: var(--bg-color);
+}
+
+.song-item.active {
+    background-color: var(--bg-color);
+    color: var(--card-color);
+    font-weight: bold;
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayna Khaerani Wahyudin</title>
+    <!-- Load CSS dari masing-masing halaman -->
+    <link rel="stylesheet" href="opening.css">
+    <link rel="stylesheet" href="mail.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <!-- === PAGE 1: OPENING === -->
+    <div id="page-opening" class="page active">
+        <div class="container">
+            <div class="envelope-container" id="envelopeContainer">
+                <svg class="envelope-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#790C12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="#790C12" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="notification-dot"></div>
+            </div>
+            <div class="text-content">
+                <h1 class="opening-greeting">hey babe!</h1>
+                <p class="opening-subtitle">you've got new emails</p>
+            </div>
+            <button class="open-btn" id="openBtn">Open <span class="arrow">→</span></button>
+        </div>
+    </div>
+
+    <!-- === PAGE 2: MAIL === -->
+    <div id="page-mail" class="page hidden">
+        <div class="mail-container">
+            <div class="mail-card" id="mailCard">
+                <div class="mail-header">
+                    <p><strong>From :</strong> <span class="highlight">Arham</span></p>
+                    <p><strong>To :</strong> <span class="highlight">Ayna</span></p>
+                </div>
+                <div class="mail-divider"></div>
+                <div class="mail-body">
+                    <p class="message-label">Message :</p>
+                    <p class="message-content" id="messageContent">
+                        <span class="typing-text"></span><span class="cursor">|</span>
+                    </p>
+                    <div id="hiddenText" style="display: none;">hey sayang!<br><br>udah offcial juga kitaaa! happy banget serius setelah sekian lama ekhem 2 taun, iya aku bingung jujur, tapi sekarang? kita jadian hahayy.
+
+<br><br>sejak kamu datang dan beneran masuk ke hidup aku, aku ngerasa punya support system terbaik yang pernah aku temuin, kamu selalu dukung apa pun yang aku lakuin, dan selalu jadi alasan kenapa aku bahagia kalo sama kamu. terimakasih tlah hadir dan menghidupkan Kembali warna yang telah lama mati,
+<br><br>" jika jatuh cinta adalah tentang menemukan seseorang untuk dicintai, mungkin jatuh hati adalah tentang menemukan seseorang yang membuat kita kembali menyukai kehidupan. "
+<br><br>thank u for being in my life, i'm really proud of you and ilysm. makasih yawww udah nerima aku, semoga kita langgeng, bahagia, sama sama terus, bisa lewatin semua part/fase sangat baik atau baik, dan juga semoga jodoh aminnn.
+</div>
+                </div>
+                <div class="mail-footer">
+                    <button class="attachment-btn" id="attachmentBtn">See More?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- === PAGE 3: HOME === -->
+    <div id="page-home" class="page hidden">
+        <div class="home-container">
+            <div class="home-card" id="homeCard">
+                <div class="image-section">
+                    <div class="image-wrapper">
+                        <img src="assets/heroimage.png" alt="Birthday Love" id="birthdayImg" />
+                    </div>
+                </div>
+                <div class="text-section">
+                    <p class="greeting" style="font-family: 'ReenieBeanie', cursive;">Ayna Khaerani W, my love.</p>
+                    <p class="message" style="font-family: 'ReenieBeanie', cursive;">
+                        Being with you is truly one of the best things that has ever happened to me. From the moment you came into my life, everything started to feel brighter and more meaningful. Thank you for loving me.
+                    </p>
+                    <button class="gallery-btn" id="galleryBtn">Gallery <span class="arrow">→</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-gallery" class="page hidden">
+        <div class="scrapbook-container">
+            <h2 class="scrapbook-title">Our Memories</h2>
+            <div class="scrapbook-board" id="scrapbookBoard">
+                <!-- Polaroid 1 -->
+                <div class="polaroid tilt-left" style="top: 50px; left: 100px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><img src="assets/1790574611169.jpeg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 2 -->
+                <div class="polaroid tilt-right" style="top: 150px; left: 450px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><img src="assets/1790574611201.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 3 -->
+                <div class="polaroid tilt-left-more" style="top: 350px; left: 50px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><video src="assets/VID-20250907-WA0170.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 4 -->
+                <div class="polaroid tilt-right" style="top: 80px; left: 800px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><img src="assets/1790574611249.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 5 -->
+                <div class="polaroid tilt-left" style="top: 400px; left: 750px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><video src="assets/2026-09-09-220350903.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 6 -->
+                <div class="polaroid tilt-right-more" style="top: 500px; left: 350px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><img src="assets/1790574611270.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 7 -->
+                <div class="polaroid tilt-left" style="top: 250px; left: 1100px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG-20250907-WA0068.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 8 -->
+                <div class="polaroid tilt-right" style="top: 600px; left: 950px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><video src="assets/IMG_1402.MOV" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 9 -->
+                <div class="polaroid tilt-left-more" style="top: 750px; left: 150px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG-20260817-WA0157.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 10 -->
+                <div class="polaroid tilt-right-more" style="top: 850px; left: 600px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><video src="assets/VID_20250828_234320.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 11 -->
+                <div class="polaroid tilt-left" style="top: 1050px; left: 100px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_1416.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 12 -->
+                <div class="polaroid tilt-right" style="top: 1100px; left: 450px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_1666.JPG" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 13 -->
+                <div class="polaroid tilt-left-more" style="top: 950px; left: 900px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><video src="assets/IMG_1671.MOV" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 14 -->
+                <div class="polaroid tilt-right-more" style="top: 1250px; left: 1200px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_20250903_094822.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 15 -->
+                <div class="polaroid tilt-left" style="top: 1300px; left: 250px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><video src="assets/VID_20260925_192227.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 16 -->
+                <div class="polaroid tilt-right" style="top: 1550px; left: 600px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_2173.jpg" alt="Memory" style="transform: rotate(90deg) scale(1.35);"></div>
+                </div>
+                <!-- Polaroid 17 -->
+                <div class="polaroid tilt-left-more" style="top: 1650px; left: 150px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><video src="assets/VID_20250921_002556.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 18 -->
+                <div class="polaroid tilt-right-more" style="top: 1700px; left: 1000px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_2185.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 19 -->
+                <div class="polaroid tilt-left" style="top: 1900px; left: 550px;">
+                    <div class="tape tape-1"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_4271.jpg" alt="Memory"></div>
+                </div>
+                <!-- Polaroid 20 -->
+                <div class="polaroid tilt-right" style="top: 2000px; left: 150px;">
+                    <div class="tape tape-2"></div>
+                    <div class="photo-wrapper"><video src="assets/VID_20260925_191332.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover;"></video></div>
+                </div>
+                <!-- Polaroid 21 -->
+                <div class="polaroid tilt-left-more" style="top: 2050px; left: 1000px;">
+                    <div class="tape tape-3"></div>
+                    <div class="photo-wrapper"><img src="assets/IMG_4299.jpg" alt="Memory"></div>
+                </div>
+
+                <!-- Scrapbook Decorations -->
+                <div class="decor sticky-note" style="top: 200px; left: 850px; transform: rotate(5deg);">
+                    <div class="pin"></div>
+                    <p style="font-family: 'ReenieBeanie', cursive; font-size: 1.5rem; text-align: center; margin-top: 15px;">You are my sunshine!</p>
+                </div>
+
+                <div class="decor doodle-heart" style="top: 100px; left: 380px; transform: rotate(-15deg);">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d63031" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+
+                <div class="decor doodle-heart" style="top: 650px; left: 850px; transform: rotate(20deg) scale(1.5);">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d63031" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+
+                <div class="decor doodle-star" style="top: 450px; left: 250px;">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#f1c40f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+
+                <div class="decor sticker" style="top: 800px; left: 450px; transform: rotate(-10deg);">
+                    <img src="assets/vintage_sunflower.jpg" alt="Vintage Sunflower" style="width: 250px;">
+                </div>
+
+                <div class="decor sticker" style="top: 250px; left: 100px; transform: rotate(15deg);">
+                    <img src="assets/vintage_butterfly.jpg" alt="Vintage Butterfly" style="width: 250px;">
+                </div>
+
+                <!-- Pinterest-inspired additions -->
+                <div class="decor sticker" style="top: 1000px; left: 200px; transform: rotate(-5deg);">
+                    <img src="assets/ripped_paper.jpg" alt="Vintage Ripped Paper" style="width: 300px;">
+                </div>
+
+                <div class="decor sticker" style="top: 550px; left: 1200px; transform: rotate(25deg);">
+                    <img src="assets/vintage_ticket.jpg" alt="Vintage Ticket" style="width: 200px;">
+                </div>
+            </div>
+            
+            <button class="back-btn" id="backToHomeBtn" style="position: fixed; bottom: 30px; left: 30px; z-index: 9999;"><span class="arrow">←</span> Back</button>
+        </div>
+    </div>
+
+    <!-- === MUSIC PLAYER (GLOBAL) === -->
+    <div class="music-player" style="display: none;" id="globalMusicPlayer">
+        <button class="music-toggle" id="musicToggle">♪</button>
+        <div class="music-panel" id="musicPanel">
+            <div class="music-progress">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="seekSlider" value="0" min="0" max="100" step="1">
+                <span id="durationTime">0:00</span>
+            </div>
+            <div class="music-controls">
+                <button id="prevBtn" title="Previous">⏮</button>
+                <button id="playPauseBtn" title="Play/Pause">▶</button>
+                <button id="nextBtn" title="Next">⏭</button>
+            </div>
+            <div class="music-list" id="musicList">
+                <div class="song-item active" data-src="assets/Glenn Fredly - Romansa Ke Masa Depan (Official Music Video).mp3">1. Romansa Ke Masa Depan</div>
+                <div class="song-item" data-src="assets/Transform (feat. Charlotte Day Wilson).mp3">2. Transform - Daniel Caesar</div>
+                <div class="song-item" data-src="assets/song3.mp3">3. A Thousand Years</div>
+            </div>
+            <audio id="audioElement"></audio>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

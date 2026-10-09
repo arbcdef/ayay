@@ -1,0 +1,214 @@
+#page-gallery {
+    background-color: var(--bg-color);
+}
+
+.scrapbook-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F8F1E4;
+    background-image: radial-gradient(#d3c6a6 1px, transparent 1px);
+    background-size: 20px 20px;
+    box-shadow: inset 0 0 100px rgba(139, 115, 85, 0.4);
+    position: relative;
+    overflow: auto;
+    cursor: grab;
+}
+
+.scrapbook-container:active {
+    cursor: grabbing;
+}
+
+.scrapbook-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+.scrapbook-container::-webkit-scrollbar-thumb {
+    background: rgba(121, 12, 18, 0.3);
+    border-radius: 10px;
+}
+.scrapbook-container::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.scrapbook-title {
+    font-family: 'ReenieBeanie', cursive;
+    font-size: 4.5rem;
+    color: #790C12;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform: rotate(-3deg);
+    z-index: 10;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.scrapbook-board {
+    position: relative;
+    width: 1600px;
+    height: 2500px;
+}
+
+.polaroid {
+    background: #fff;
+    padding: 15px 15px 40px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 250px;
+    position: absolute;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, z-index 0.3s ease;
+    z-index: 2;
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.photo-wrapper {
+    width: 100%;
+    height: 210px;
+    background: #000;
+    overflow: hidden;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.2) contrast(1.1); /* Efek retro sedikit */
+}
+
+.caption {
+    font-family: 'ReenieBeanie', cursive;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-top: 15px;
+    position: absolute;
+    bottom: 5px;
+    width: calc(100% - 30px);
+}
+
+/* --- Efek Selotip Washi Tape --- */
+.tape {
+    position: absolute;
+    width: 80px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    z-index: 5;
+    opacity: 0.8;
+}
+
+.tape-1 {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: rgba(220, 180, 180, 0.7); /* Pink washi */
+}
+
+.tape-2 {
+    top: -10px;
+    right: -15px;
+    transform: rotate(45deg);
+    background: rgba(180, 210, 180, 0.7); /* Green washi */
+}
+
+.tape-3 {
+    top: -5px;
+    left: -15px;
+    transform: rotate(-40deg);
+    background: rgba(245, 222, 179, 0.8); /* Brown/gold washi */
+}
+
+/* Rotasi bervariasi untuk polaroid */
+.tilt-left { transform: rotate(-5deg); }
+.tilt-right { transform: rotate(6deg); }
+.tilt-left-more { transform: rotate(-8deg); margin-top: 20px; }
+
+/* Tombol Back */
+.back-btn {
+    margin-top: 20px;
+    background: #790C12;
+    color: #FFF7E1;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1.2rem;
+    font-family: 'ReenieBeanie', cursive;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(121, 12, 18, 0.4);
+}
+
+.back-btn:hover {
+    background: #5a090e;
+    transform: translateY(-3px);
+}
+
+.back-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover .arrow {
+    transform: translateX(-5px);
+}
+
+/* --- Decorations --- */
+.decor {
+    position: absolute;
+    pointer-events: none; /* Biar tetap bisa di-drag tembus hiasan */
+    z-index: 1;
+}
+
+.sticky-note {
+    background: #fffaa5;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.15);
+    border-bottom-right-radius: 20px 5px;
+}
+
+.sticky-note::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0.05);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+}
+
+.pin {
+    width: 12px;
+    height: 12px;
+    background: #e74c3c;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset -2px -2px 4px rgba(0,0,0,0.3), 2px 2px 3px rgba(0,0,0,0.2);
+}
+
+.doodle-heart svg {
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+}
+
+.doodle-star svg {
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
+}
+
+.sticker {
+    /* Hapus drop shadow default karena kita pakai gambar vintage yang nge-blend dengan kertas */
+}
+
+.sticker img {
+    mix-blend-mode: multiply; /* Ini akan membuat background cream dari gambar menyatu sempurna dengan kertas scrapbook! */
+    filter: contrast(1.1);
+}
